@@ -31,6 +31,10 @@ This is my solution for the techincal test for TDS by Marcin Daber.
 
     It would also allow me to reach close to 100% test coverage. This is difficult in Next.js due to the many different types of files we use and how differently they run in reality.
 
+ -  A button between the two selectors to swap currencies instantly (which would also perform a conversion on the new amounts).
+ 
+    It's just helpful.
+
 
 ## Some thoughts you may be having - addressed.
 
