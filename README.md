@@ -48,7 +48,3 @@ I did also have the idea of doing this in React and requiring the user to input 
 ### But this has an unguarded API endpoint. Can't they do the same with that?
 
 My presumption is that this would be hidden behind some auth; that auth middleware could be added quickly.
-
-
-### Why no more tests?
-
