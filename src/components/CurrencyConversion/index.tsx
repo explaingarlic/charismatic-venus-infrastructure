@@ -32,10 +32,6 @@ export default function CurrencyConversion({
             })
     }
 
-    useEffect(() => {
-        console.log("currency from changed", currencyFrom)
-    }, [currencyFrom])
-
     return (
         <div className="w-max mx-auto my-6 md:my-20">
             <CurrencySelection
