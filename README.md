@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TDS Solutions Technical Test
 
-## Getting Started
+This is my solution for the techincal test for TDS by Marcin Daber.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Where I'd go in improving this further.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ -  The currency input box is buggy. This is consequence of currency notation being a notoriously difficult problem.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    The closest I've been able to find of a real working currency input box is [here](https://github.com/cchanxzy/react-currency-input-field/blob/main/src/components/CurrencyInput.tsx).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    As you can see, it's incredibly heavy-handed for this technical test.
 
-## Learn More
+    If I were to do it again, I think I would think of some clever two-input-box solution that would instantly swap between each other upon using arrow keys or finishing what you were writing.
 
-To learn more about Next.js, take a look at the following resources:
+    Currently, it is impossible to convert $0.01 into anything; you would have to convert minimally $0.10. This is quite a large flaw, but the solution would take some hours (or remove the functionality that exists within the existing solution, or require the use of a third party library).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ -  I would prefer to use a more complete test framework like Playwright.
+    
+    That would take more time to setup than the 2h allotted. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    It would also allow me to reach close to 100% test coverage. This is difficult in Next.js due to the many different types of files we use and how differently they run in reality.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Some thoughts you may be having - addressed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Why Next.js?
+
+It is impossible to do this with *pure* React *without leaking your API key*. 
+
+This is because React is a frontend-only framework. There would be no backend running anywhere which could store the key.
+
+As such, someone could take the key directly and use it for their own needs, and run out your free tier.
+
+I did also have the idea of doing this in React and requiring the user to input their API key. This is definitely not orthodox for a web application and I did not think it to be an appropriate solution.
+
+
+### But this has an unguarded API endpoint. Can't they do the same with that?
+
+My presumption is that this would be hidden behind some auth; that auth middleware could be added quickly.
+
+
+### Why no more tests?
+
