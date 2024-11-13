@@ -23,7 +23,15 @@ export function CurrencyInputBox(
 ) {
     const [actualValue, setActualValue] = useState(0);
     const [displayedValue, setDisplayedValue] = useState(
-        `${MainSymbolLocation === "front" ? MainSymbol : ""}0.${"0".repeat(Decimals)}${MainSymbolLocation === "back" ? MainSymbol : ""}`
+        getCurrencyString(0, 
+            {
+                symbol: MainSymbol,
+                mainSymbolLocation: MainSymbolLocation,
+                precision: Decimals,
+                decimalSymbol: DecimalSymbol,
+                thousandsSymbol: ThousandsSymbol
+            }    
+        )
     );
     const [error, setError] = useState("");
 
@@ -42,7 +50,13 @@ export function CurrencyInputBox(
     useEffect(() => {
         setActualValue(0);
         setDisplayedValue(
-            `${MainSymbolLocation === "front" ? MainSymbol : ""}0.${"0".repeat(Decimals)}${MainSymbolLocation === "back" ? MainSymbol : ""}`
+            getCurrencyString(0, {
+                symbol: MainSymbol,
+                mainSymbolLocation: MainSymbolLocation,
+                precision: Decimals,
+                decimalSymbol: DecimalSymbol,
+                thousandsSymbol: ThousandsSymbol
+            })
         );
     }, [MainSymbol, MainSymbolLocation, Decimals, DecimalSymbol, ThousandsSymbol])
 

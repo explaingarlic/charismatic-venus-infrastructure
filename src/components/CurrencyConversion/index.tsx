@@ -26,7 +26,18 @@ export default function CurrencyConversion({
     }, [amount, currencyFrom, currencyTo])
 
     function convert() {
-        const req = fetch(`/api/convert?from=${currencyFrom}&to=${currencyTo}&amount=${amount}`)
+        let amountToSend = amount;
+        // Both "!" are justified as this is from a <select> list that has currencies we populate from currenciesAvailable.
+        const currencyFromObject = currenciesAvailable.get(currencyFrom)!;
+        const currencyToObject = currenciesAvailable.get(currencyTo)!;
+        if(currencyFromObject.precision === 0) {
+            amountToSend *= (10 ** currencyToObject.precision)
+        }
+        else if(currencyToObject.precision === 0) {
+            amountToSend /= (10 ** currencyFromObject.precision)
+        }
+
+        const req = fetch(`/api/convert?from=${currencyFrom}&to=${currencyTo}&amount=${amountToSend}`)
             .then(res => res.json()).then(({amount} : { amount: number} ) => {
                 setConvertedAmount(amount);
             })
