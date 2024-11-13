@@ -18,7 +18,7 @@ export default function getCurrencyString(
         decimalsPart = (currencyAmount % (10 ** precision)).toString();
     
         if(decimalsPart.length === 1) {
-            decimalsPart += "0";
+            decimalsPart = "0" + decimalsPart;
         }
     }
     const fullPart = (Math.floor(currencyAmount / (10 ** precision))).toString();
