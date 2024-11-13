@@ -2,6 +2,16 @@
 
 This is my solution for the techincal test for TDS by Marcin Daber.
 
+# Instructions on running
+
+- Set the `CURRENCY_API_TOKEN` environment variable. 
+
+- Run the standard `npm install --save-dev` (or `npm install` for a production build)
+
+- Run the project with `npm run dev` (or `npm run build && npm start` for the production build)
+
+- Visit the site at `http://localhost:3000`.
+
 
 ## Where I'd go in improving this further.
 
