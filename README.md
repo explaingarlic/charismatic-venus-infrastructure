@@ -15,6 +15,8 @@ This is my solution for the techincal test for TDS by Marcin Daber.
 
 ## Where I'd go in improving this further.
 
+ -  My approach of internally using pennies instead of pounds (I.E. no floats) probably wasn't worth it. It causes a lot of bugs in many different places, though I'm not certain if the amount of bugs caused by floating point error would be lesser than this. Either way, most of the bugs you will find with the application relate to this.
+
  -  The currency input box is buggy. This is consequence of currency notation being a notoriously difficult problem.
 
     The closest I've been able to find of a real working currency input box is [here](https://github.com/cchanxzy/react-currency-input-field/blob/main/src/components/CurrencyInput.tsx).
@@ -32,7 +34,7 @@ This is my solution for the techincal test for TDS by Marcin Daber.
     It would also allow me to reach close to 100% test coverage. This is difficult in Next.js due to the many different types of files we use and how differently they run in reality.
 
  -  A button between the two selectors to swap currencies instantly (which would also perform a conversion on the new amounts).
- 
+
     It's just helpful.
 
 
