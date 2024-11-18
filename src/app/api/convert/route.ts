@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest, _response: NextResponse) {
+export async function GET(request: NextRequest) {
     const from = request.nextUrl.searchParams.get("from");
     const to = request.nextUrl.searchParams.get("to");
     const amount = parseInt(request.nextUrl.searchParams.get("amount")!);
